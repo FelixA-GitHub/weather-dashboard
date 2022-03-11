@@ -1,10 +1,7 @@
-//variable to display the date with format preference
-let currentWDate = moment().format(' (MM/DD/YYYY)');
-let currentWCity = "City";
-let currentWIcon = " 🌤";
 
-$("#current-weather-city").html(currentWCity);
-$(".current-weather-date").html(currentWCity + currentWDate + currentWIcon);
+let currentWCity = document.querySelector("#current-weather-city");
+let currentWData = document.querySelector("#current-weather");
+var displayName;
 
 
 var getWeather = function(coords) {
@@ -25,8 +22,35 @@ var displayIcon = function() {
 
 }
 
-var displayCurrWeather = function() {
+var displayCurrWeather = function(weatherData) {
+    //current city
+    currentWCity.textContent = displayName;
+    //current date
+    var dateEl = currentWData.querySelector("#current-weather-date");
+    var unixDate = weatherData.current.dt; 
+    var currentWDate = moment.unix(unixDate).format(' (MM/DD/YYYY)');
+    dateEl.textContent = currentWDate;
+    //current temp
+    var tempEl = currentWData.querySelector("#current-weather-temp");
+    var temperature = Math.floor(weatherData.current.temp);
+    tempEl.textContent = "Temp: " + temperature + " °F";
+    //current wind
+    var windEl = currentWData.querySelector("current-weather-wind");
+    var windSpeed = weatherData.current.wind_speed;
+    windEl.textContent = "Wind: " + windSpeed + " MPH";
+    //current humidity
+    var humidEL = currentWData.querySelector("current-weather-humidity");
+    var humidity = weatherData.current.humidity;
+    humidEL.textContent = "Humidity: " + humidity + " %";
+    //current uv index
+    var uvEl = currentWData.querySelector("current-weather-uv-index");
+    var uvIndex = weatherData.current.uvi;
+    uvEl.textContent = "UV Index: " + uvIndex;
 
+    var weatherContainer = document.querySelector("#weather-container");
+    var currentWeather = document.querySelector("#current-weather");
+    weatherContainer.style.display = "block";
+    currentWeather.style.display = "block";
 }
 
 var displayForecast = function() {
@@ -34,7 +58,7 @@ var displayForecast = function() {
 }
 
 var searchButton = function(){
-    
+
 }
 
 var displaySearchHistory = function() {
