@@ -213,15 +213,15 @@ function init() {
 
 
     function getWeather(cityName) {
-        // Execute a current weather get request from open weather api
+        //get request for weather from OpenWeatherMap API
         let weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=33d05024949e3f3d2fc78856ad6d0554";
 
         axios.get(weatherApiUrl)
             .then(function (response) {
-
+                //removes d-none so that current weather may be displayed in container
                 currentWeatherEl.classList.remove("d-none");
 
-                // Parse response to display current weather
+                //parses the response
                 var currentDate = new Date(response.data.dt * 1000);
                 var day = currentDate.getDate();
                 var month = currentDate.getMonth() + 1;
@@ -258,12 +258,13 @@ function init() {
                         currentUvEl.append(uvIndex);
                     });
                 
-                // Get 5 day forecast for this city
-                let cityID = response.data.id;
+                //5 day forecast
+                let cityID = response.data.id;//pulls city id from weatherApiUrl get response to insert into forecastApiUrl
                 let forecastApiUrl = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=33d05024949e3f3d2fc78856ad6d0554";
 
                 axios.get(forecastApiUrl)
                     .then(function (response) {
+                        //removes the d-none class
                         fiveDayEl.classList.remove("d-none");
                         
                         //  Parse response to display forecast for next 5 days
