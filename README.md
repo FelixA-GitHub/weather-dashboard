@@ -1,19 +1,14 @@
-# weather-dashboard
+# Weather-Dashboard
 
-## url: https://felixa-github.github.io/weather-dashboard/
-
-## mock up
-![Weather Dashboard Screenshot](https://github.com/FelixA-GitHub/weather-dashboard/blob/main/assets/img/weather-dashboard.jpg)
-
-## description
-- Web application that allows users to input city and get its current weather and five day forecast. Previous search history is stored.
-
-## user story
+## User Story
+```
 - AS A traveler
 - I WANT to see the weather outlook for multiple cities
 - SO THAT I can plan a trip accordingly
+```
 
-## acceptance criteria
+## Acceptance Criteria
+```
 - GIVEN a weather dashboard with form inputs
 - WHEN I search for a city
 - THEN I am presented with current and future conditions for that city and that city is added to the search history
@@ -25,3 +20,21 @@
 - THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
 - WHEN I click on a city in the search history
 - THEN I am again presented with current and future conditions for that city
+```
+
+## Mock Up
+![Weather Dashboard Screenshot](./assets/img/weather-dashboard.jpg)
+
+## URL
+https://felixa-github.github.io/weather-dashboard/
+
+## Questions:
+
+GitHub:
+
+https://github.com/FelixA-GitHub
+
+If you have additional questions, you can reach me at:
+
+Felix.Acevedo.Tech@gmail.com
+
